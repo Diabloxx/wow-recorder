@@ -14,6 +14,7 @@ import { uIOhook } from 'uiohook-napi';
 import { PTTKeyPressEvent } from 'types/KeyTypesUIOHook';
 import assert from 'assert';
 import { getLocalePhrase, Language, Phrase } from 'localisation/translations';
+import { ThumbnailGenerator } from './ThumbnailGenerator';
 import {
   resolveHtmlPath,
   openSystemExplorer,
@@ -358,6 +359,32 @@ ipcMain.handle('getVideoState', async () => {
   const storagePath = cfg.get<string>('storagePath');
   assert(manager);
   return manager.loadAllVideos(storagePath);
+});
+
+/**
+ * Generate thumbnail for a video
+ */
+ipcMain.handle('generateThumbnail', async (_event, args: [string, string]) => {
+  try {
+    const [videoPath, videoName] = args;
+    return await ThumbnailGenerator.generateThumbnail(videoPath, videoName);
+  } catch (error) {
+    console.error('Error generating thumbnail:', error);
+    return null;
+  }
+});
+
+/**
+ * Get thumbnail path for a video
+ */
+ipcMain.handle('getThumbnailPath', async (_event, args: [string]) => {
+  try {
+    const [videoName] = args;
+    return await ThumbnailGenerator.getThumbnailPath(videoName);
+  } catch (error) {
+    console.error('Error getting thumbnail path:', error);
+    return null;
+  }
 });
 
 /**

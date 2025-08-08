@@ -26,7 +26,9 @@ export type Channels =
   | 'refreshFrontend'
   | 'doAppUpdate'
   | 'volmeter'
-  | 'audioSettingsOpen';
+  | 'audioSettingsOpen'
+  | 'generateThumbnail'
+  | 'getThumbnailPath';
 
 contextBridge.exposeInMainWorld('electron', {
   ipcRenderer: {
