@@ -9,7 +9,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Add switch to Enable/Disable recording of MoP Classic challenge modes. https://github.com/aza547/wow-recorder/pull/713
 ### Fixed
+
+## [6.15.4] - 2025-08-16
+### Fixed
+- [Issue 717](https://github.com/aza547/wow-recorder/issues/717) - Update to OSN `0.25.47` to fix game capture mode.
+- Fixed some key timers.
+- Fixed a fader release log.
+
+## [6.15.3] - 2025-08-10
+### Added
+- [PR 713](https://github.com/aza547/wow-recorder/pull/713) - Add switch to Enable/Disable recording of MoP Classic challenge modes. 
+
+### Fixed
 - [Issue 708](https://github.com/aza547/wow-recorder/issues/708) - Fix an issue where force stopping classic arena would give the wrong result and category.
+- Update timers for TWW season 3 Mythic+.
 
 ## [6.15.1] - 2025-08-01
 ### Fixed
